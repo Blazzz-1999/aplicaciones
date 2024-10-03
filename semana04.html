@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>TAREA SEMANA 01</h1>
+        <h1>TAREA SEMANA 04</h1>
     </header>
 
     <nav class="sidebar">
@@ -42,105 +42,129 @@
     </nav>
 
     <main id="inicio">
-
-
         <div class="codigo-section">
             <h2>Código 1</h2>
             <div class="button-group">
                 <button class="codigo-btn" data-target="codigo1">Ver Código 1</button>
-                <a href="ruta/al/codigo1.dart" class="btn-github">Ver código en GitHub</a>
-                <a href="ruta/al/codigo1.dart" download class="btn-download">Descargar archivo</a>
+                <a href="https://github.com/Blazzz-1999/aplicaciones/blob/main/semana04.html" class="btn-github">Ver código en GitHub</a>
+                <button class="btn-download" onclick="descargarCodigo('codigo1', 'codigo01.txt')">Descargar archivo</button>
             </div>
             <pre class="codigo-content" id="codigo1" style="display: none;">
                 import 'dart:io';
 
                 void main() {
-                // Solicitar la cantidad de dinero a repartir
-                print('Ingrese la cantidad de dinero a repartir:');
-                double montoTotal = double.parse(stdin.readLineSync()!);
+                Map<String, double> pensiones = {
+                    'A': 550.0,
+                    'B': 500.0,
+                    'C': 460.0,
+                    'D': 400.0,
+                };
 
-                // Cálculo de la cantidad que recibe cada hijo
-                double josue = 0.27 * montoTotal;
-                double daniel = 0.25 * montoTotal;
-                double tamar = 0.85 * josue;
-                double caleb = 0.23 * (josue + daniel);
-                
-                // Cálculo del dinero que queda para David
-                double david = montoTotal - (josue + tamar + caleb + daniel);
+                print("Ingrese la categoría del estudiante (A, B, C, D): ");
+                String categoria = stdin.readLineSync()!.toUpperCase();
 
-                // Mostrar los resultados
-                print('Dinero recibido por cada hijo:');
-                print('Josué: \$${josue.toStringAsFixed(2)}');
-                print('Daniel: \$${daniel.toStringAsFixed(2)}');
-                print('Tamar: \$${tamar.toStringAsFixed(2)}');
-                print('Caleb: \$${caleb.toStringAsFixed(2)}');
-                print('David: \$${david.toStringAsFixed(2)}');
+                print("Ingrese el promedio ponderado del ciclo anterior: ");
+                double promedio = double.parse(stdin.readLineSync()!);
+
+                double pensionActual = pensiones[categoria] ?? 0.0;
+                double descuento = 0.0;
+
+                if (promedio >= 14 && promedio < 16) {
+                    descuento = 0.10;
+                } else if (promedio >= 16 && promedio < 18) {
+                    descuento = 0.12;
+                } else if (promedio >= 18) {
+                    descuento = 0.15;
+                }
+
+                double rebaja = pensionActual * descuento;
+                double nuevaPension = pensionActual - rebaja;
+
+                print("Rebaja: S/. ${rebaja.toStringAsFixed(2)}");
+                print("Nueva Pensión: S/. ${nuevaPension.toStringAsFixed(2)}");
                 }
             </pre>
 
             <h2>Código 2</h2>
             <div class="button-group">
                 <button class="codigo-btn" data-target="codigo2">Ver Código 2</button>
-                <a href="ruta/al/codigo2.dart" class="btn-github">Ver código en GitHub</a>
-                <a href="ruta/al/codigo2.dart" download class="btn-download">Descargar archivo</a>
+                <a href="https://github.com/Blazzz-1999/aplicaciones/blob/main/semana04.html" class="btn-github">Ver código en GitHub</a>
+                <button class="btn-download" onclick="descargarCodigo('codigo2', 'codigo02.txt')">Descargar archivo</button>
             </div>
             <pre class="codigo-content" id="codigo2" style="display: none;">
                 import 'dart:io';
 
                 void main() {
-                // Solicitar la cantidad total de dinero a invertir
-                print('Ingrese el monto total de dinero a invertir:');
-                double montoTotal = double.parse(stdin.readLineSync()!);
+                print("Ingrese su edad: ");
+                int edad = int.parse(stdin.readLineSync()!);
 
-                // Cálculo de los gastos en cada rubro
-                double alquiler = 0.23 * montoTotal;
-                double publicidad = 0.07 * montoTotal;
-                double transporte = 0.26 * montoTotal;
-                double serviciosFeriales = 0.12 * montoTotal;
-                double decoracion = 0.21 * montoTotal;
-                double gastosVarios = 0.11 * montoTotal;
+                print("Ingrese su nivel de beneficio (1, 2, 3, otros): ");
+                int nivel = int.parse(stdin.readLineSync()!);
 
-                // Mostrar los resultados
-                print('Gastos de la empresa "Juanito Import" SAC:');
-                print('Alquiler de espacio en la feria: \$${alquiler.toStringAsFixed(2)}');
-                print('Publicidad: \$${publicidad.toStringAsFixed(2)}');
-                print('Transporte: \$${transporte.toStringAsFixed(2)}');
-                print('Servicios feriales: \$${serviciosFeriales.toStringAsFixed(2)}');
-                print('Decoración: \$${decoracion.toStringAsFixed(2)}');
-                print('Gastos varios: \$${gastosVarios.toStringAsFixed(2)}');
+                double costo;
+                double descuento;
+
+                if (edad > 18) {
+                    costo = 350.0;
+                    if (nivel == 1) {
+                    descuento = 0.40;
+                    } else if (nivel == 2) {
+                    descuento = 0.30;
+                    } else if (nivel == 3) {
+                    descuento = 0.15;
+                    } else {
+                    descuento = 0.0;
+                    }
+                } else {
+                    costo = 200.0;
+                    if (nivel == 1) {
+                    descuento = 0.60;
+                    } else if (nivel == 2) {
+                    descuento = 0.40;
+                    } else if (nivel == 3) {
+                    descuento = 0.20;
+                    } else {
+                    descuento = 0.0;
+                    }
+                }
+
+                double montoDescuento = costo * descuento;
+                double precioFinal = costo - montoDescuento;
+
+                print("Descuento: S/. ${montoDescuento.toStringAsFixed(2)}");
+                print("Precio final a pagar: S/. ${precioFinal.toStringAsFixed(2)}");
                 }
             </pre>
 
             <h2>Código 3</h2>
             <div class="button-group">
                 <button class="codigo-btn" data-target="codigo3">Ver Código 3</button>
-                <a href="ruta/al/codigo3.dart" class="btn-github">Ver código en GitHub</a>
-                <a href="ruta/al/codigo3.dart" download class="btn-download">Descargar archivo</a>
+                <a href="https://github.com/Blazzz-1999/aplicaciones/blob/main/semana04.html" class="btn-github">Ver código en GitHub</a>
+                <button class="btn-download" onclick="descargarCodigo('codigo3', 'codigo03.txt')">Descargar archivo</button>
             </div>
             <pre class="codigo-content" id="codigo3" style="display: none;">
                 import 'dart:io';
 
                 void main() {
-                // Solicitar la cantidad total de dinero a invertir
-                print('Ingrese el monto total de dinero a invertir:');
-                double montoTotal = double.parse(stdin.readLineSync()!);
+                const double sueldoBasico = 600.0;
+                print("Ingrese el importe total vendido: ");
+                double totalVendido = double.parse(stdin.readLineSync()!);
 
-                // Cálculo de los gastos en cada rubro
-                double alquiler = 0.23 * montoTotal;
-                double publicidad = 0.07 * montoTotal;
-                double transporte = 0.26 * montoTotal;
-                double serviciosFeriales = 0.12 * montoTotal;
-                double decoracion = 0.21 * montoTotal;
-                double gastosVarios = 0.11 * montoTotal;
+                print("Ingrese el número de hijos: ");
+                int numeroHijos = int.parse(stdin.readLineSync()!);
 
-                // Mostrar los resultados
-                print('Gastos de la empresa "Juanito Import" SAC:');
-                print('Alquiler de espacio en la feria: \$${alquiler.toStringAsFixed(2)}');
-                print('Publicidad: \$${publicidad.toStringAsFixed(2)}');
-                print('Transporte: \$${transporte.toStringAsFixed(2)}');
-                print('Servicios feriales: \$${serviciosFeriales.toStringAsFixed(2)}');
-                print('Decoración: \$${decoracion.toStringAsFixed(2)}');
-                print('Gastos varios: \$${gastosVarios.toStringAsFixed(2)}');
+                double comision = totalVendido > 15000 ? totalVendido * 0.07 : totalVendido * 0.05;
+                double bonificacion = numeroHijos < 5 ? numeroHijos * 25 : numeroHijos * 22;
+                double sueldoBruto = sueldoBasico + comision + bonificacion;
+                double descuento = sueldoBruto > 3500 ? sueldoBruto * 0.15 : sueldoBruto * 0.11;
+                double sueldoNeto = sueldoBruto - descuento;
+
+                print("Sueldo Básico: S/. ${sueldoBasico.toStringAsFixed(2)}");
+                print("Comisión: S/. ${comision.toStringAsFixed(2)}");
+                print("Bonificación: S/. ${bonificacion.toStringAsFixed(2)}");
+                print("Sueldo Bruto: S/. ${sueldoBruto.toStringAsFixed(2)}");
+                print("Descuento: S/. ${descuento.toStringAsFixed(2)}");
+                print("Sueldo Neto: S/. ${sueldoNeto.toStringAsFixed(2)}");
                 }
             </pre>
         </div>
@@ -167,6 +191,20 @@
                 codigoContent.style.display = codigoContent.style.display === 'none' ? 'block' : 'none';
             });
         });
+
+        function descargarCodigo(targetId, nombreArchivo) {
+            const codigoContent = document.getElementById(targetId).textContent;
+            const blob = new Blob([codigoContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = nombreArchivo;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
     </script>
 </body>
 </html>
+
