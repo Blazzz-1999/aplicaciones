@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #343a40;
+}
+
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav.sidebar {
+    width: 260px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(180deg, #343a40 0%, #495057 100%);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    transition: width 0.3s;
+}
+
+.nav-brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 15px 20px;
+    text-align: center;
+    border-bottom: 2px solid #007bff;
+}
+
+nav.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav.sidebar ul li {
+    margin-bottom: 1px;
+}
+
+nav.sidebar ul li a,
+.dropdown-btn {
+    display: block;
+    padding: 13px;
+    padding-left: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav.sidebar ul li a:hover,
+.dropdown-btn:hover,
+nav.sidebar ul li a.active {
+    background-color: #007bff;
+    color: black;
+
+}
+
+.dropdown-container {
+    display: none;
+    margin-top: 5px;
+    padding-left: 20px;
+}
+
+.dropdown-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.dropdown-container ul li a {
+    color: #ecf0f1;
+}
+
+.dropdown-container ul li a:hover {
+    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.1); /* Efecto sutil al pasar el mouse */
+}
+
+main {
+    margin-left: 280px; 
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #007bff;
+    color: white;
+}
+
+/* Transiciones suaves para el menú desplegable */
+.show {
+    display: block;
+}
+
+h2 {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+a {
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav.sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    main {
+        margin-left: 0; 
+        padding: 10px;
+    }
+}

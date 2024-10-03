@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicaciones Web</title>
+    <link rel="stylesheet" href="semana04.css">
+</head>
+<body>
+    <header>
+        <h1>TAREA SEMANA 01</h1>
+    </header>
+
+    <nav class="sidebar">
+        <ul>
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="#aplicaciones-web">Aplicaciones Web</a></li>
+            <li class="dropdown">
+                <button class="dropdown-btn">Semanas</button>
+                <div class="dropdown-container">
+                    <ul>
+                        <li><a href="semana01.html">Semana 01</a></li>
+                        <li><a href="semana02.html">Semana 02</a></li>
+                        <li><a href="semana03.html">Semana 03</a></li>
+                        <li><a href="semana04.html">Semana 04</a></li>
+                        <li><a href="semana05.html">Semana 05</a></li>
+                        <li><a href="semana06.html">Semana 06</a></li>
+                        <li><a href="semana07.html">Semana 07</a></li>
+                        <li><a href="semana08.html">Semana 08</a></li>
+                        <li><a href="semana09.html">Semana 09</a></li>
+                        <li><a href="semana10.html">Semana 10</a></li>
+                        <li><a href="semana11.html">Semana 11</a></li>
+                        <li><a href="semana12.html">Semana 12</a></li>
+                        <li><a href="semana13.html">Semana 13</a></li>
+                        <li><a href="semana14.html">Semana 14</a></li>
+                        <li><a href="semana15.html">Semana 15</a></li>
+                        <li><a href="semana16.html">Semana 16</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <main id="inicio">
+
+
+        <div class="codigo-section">
+            <h2>Código 1</h2>
+            <div class="button-group">
+                <button class="codigo-btn" data-target="codigo1">Ver Código 1</button>
+                <a href="ruta/al/codigo1.dart" class="btn-github">Ver código en GitHub</a>
+                <a href="ruta/al/codigo1.dart" download class="btn-download">Descargar archivo</a>
+            </div>
+            <pre class="codigo-content" id="codigo1" style="display: none;">
+                import 'dart:io';
+
+                void main() {
+                // Solicitar la cantidad de dinero a repartir
+                print('Ingrese la cantidad de dinero a repartir:');
+                double montoTotal = double.parse(stdin.readLineSync()!);
+
+                // Cálculo de la cantidad que recibe cada hijo
+                double josue = 0.27 * montoTotal;
+                double daniel = 0.25 * montoTotal;
+                double tamar = 0.85 * josue;
+                double caleb = 0.23 * (josue + daniel);
+                
+                // Cálculo del dinero que queda para David
+                double david = montoTotal - (josue + tamar + caleb + daniel);
+
+                // Mostrar los resultados
+                print('Dinero recibido por cada hijo:');
+                print('Josué: \$${josue.toStringAsFixed(2)}');
+                print('Daniel: \$${daniel.toStringAsFixed(2)}');
+                print('Tamar: \$${tamar.toStringAsFixed(2)}');
+                print('Caleb: \$${caleb.toStringAsFixed(2)}');
+                print('David: \$${david.toStringAsFixed(2)}');
+                }
+            </pre>
+
+            <h2>Código 2</h2>
+            <div class="button-group">
+                <button class="codigo-btn" data-target="codigo2">Ver Código 2</button>
+                <a href="ruta/al/codigo2.dart" class="btn-github">Ver código en GitHub</a>
+                <a href="ruta/al/codigo2.dart" download class="btn-download">Descargar archivo</a>
+            </div>
+            <pre class="codigo-content" id="codigo2" style="display: none;">
+                import 'dart:io';
+
+                void main() {
+                // Solicitar la cantidad total de dinero a invertir
+                print('Ingrese el monto total de dinero a invertir:');
+                double montoTotal = double.parse(stdin.readLineSync()!);
+
+                // Cálculo de los gastos en cada rubro
+                double alquiler = 0.23 * montoTotal;
+                double publicidad = 0.07 * montoTotal;
+                double transporte = 0.26 * montoTotal;
+                double serviciosFeriales = 0.12 * montoTotal;
+                double decoracion = 0.21 * montoTotal;
+                double gastosVarios = 0.11 * montoTotal;
+
+                // Mostrar los resultados
+                print('Gastos de la empresa "Juanito Import" SAC:');
+                print('Alquiler de espacio en la feria: \$${alquiler.toStringAsFixed(2)}');
+                print('Publicidad: \$${publicidad.toStringAsFixed(2)}');
+                print('Transporte: \$${transporte.toStringAsFixed(2)}');
+                print('Servicios feriales: \$${serviciosFeriales.toStringAsFixed(2)}');
+                print('Decoración: \$${decoracion.toStringAsFixed(2)}');
+                print('Gastos varios: \$${gastosVarios.toStringAsFixed(2)}');
+                }
+            </pre>
+
+            <h2>Código 3</h2>
+            <div class="button-group">
+                <button class="codigo-btn" data-target="codigo3">Ver Código 3</button>
+                <a href="ruta/al/codigo3.dart" class="btn-github">Ver código en GitHub</a>
+                <a href="ruta/al/codigo3.dart" download class="btn-download">Descargar archivo</a>
+            </div>
+            <pre class="codigo-content" id="codigo3" style="display: none;">
+                import 'dart:io';
+
+                void main() {
+                // Solicitar la cantidad total de dinero a invertir
+                print('Ingrese el monto total de dinero a invertir:');
+                double montoTotal = double.parse(stdin.readLineSync()!);
+
+                // Cálculo de los gastos en cada rubro
+                double alquiler = 0.23 * montoTotal;
+                double publicidad = 0.07 * montoTotal;
+                double transporte = 0.26 * montoTotal;
+                double serviciosFeriales = 0.12 * montoTotal;
+                double decoracion = 0.21 * montoTotal;
+                double gastosVarios = 0.11 * montoTotal;
+
+                // Mostrar los resultados
+                print('Gastos de la empresa "Juanito Import" SAC:');
+                print('Alquiler de espacio en la feria: \$${alquiler.toStringAsFixed(2)}');
+                print('Publicidad: \$${publicidad.toStringAsFixed(2)}');
+                print('Transporte: \$${transporte.toStringAsFixed(2)}');
+                print('Servicios feriales: \$${serviciosFeriales.toStringAsFixed(2)}');
+                print('Decoración: \$${decoracion.toStringAsFixed(2)}');
+                print('Gastos varios: \$${gastosVarios.toStringAsFixed(2)}');
+                }
+            </pre>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ABEL SALDAÑA PORRAS. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const dropdown = document.querySelector('.dropdown-btn');
+        const dropdownContent = document.querySelector('.dropdown-container');
+
+        dropdown.addEventListener('click', function() {
+            dropdownContent.classList.toggle('show');
+        });
+
+        const codigoBtns = document.querySelectorAll('.codigo-btn');
+        
+        codigoBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const codigoContent = document.getElementById(targetId);
+                codigoContent.style.display = codigoContent.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

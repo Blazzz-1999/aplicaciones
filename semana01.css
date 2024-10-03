@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f9;
+    color: #343a40;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.pdf-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.pdf-button:hover {
+    background-color: #0056b3;
+}
+
+nav.sidebar {
+    width: 260px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(180deg, #343a40 0%, #495057 100%);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+nav.sidebar ul {
+    list-style-type: none;
+}
+
+nav.sidebar ul li {
+    margin-bottom: 1px;
+}
+
+nav.sidebar ul li a,
+.dropdown-btn {
+    display: block;
+    padding: 15px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav.sidebar ul li a:hover,
+.dropdown-btn:hover,
+nav.sidebar ul li a.active {
+    background-color: #007bff;
+    color: black;
+}
+
+.dropdown-container {
+    display: none;
+    margin-top: 5px;
+    padding-left: 20px;
+}
+
+.dropdown-container ul {
+    list-style-type: none;
+}
+
+.dropdown-container ul li a {
+    color: #ecf0f1;
+}
+
+main {
+    margin-left: 280px; 
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #007bff;
+    color: white;
+}
+
+.show {
+    display: block;
+}
+
+h1{
+    justify-content: center;
+    text-align: center;
+}
+
+h2 {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+a {
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav.sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    main {
+        margin-left: 0; 
+        padding: 10px;
+    }
+}
