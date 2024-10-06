@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicaciones Web</title>
+    <link rel="stylesheet" href="estilos05.css">
+</head>
+<body>
+    <header>
+        <h1>TAREA SEMANA 05</h1>
+    </header>
+
+    <nav class="sidebar">
+        <ul>
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="#aplicaciones-web">Aplicaciones Web</a></li>
+            <li class="dropdown">
+                <button class="dropdown-btn">Semanas</button>
+                <div class="dropdown-container">
+                    <ul>
+                        <li><a href="semana01.html">Semana 01</a></li>
+                        <li><a href="semana02.html">Semana 02</a></li>
+                        <li><a href="semana03.html">Semana 03</a></li>
+                        <li><a href="semana04.html">Semana 04</a></li>
+                        <li><a href="semana05.html">Semana 05</a></li>
+                        <li><a href="semana06.html">Semana 06</a></li>
+                        <li><a href="semana07.html">Semana 07</a></li>
+                        <li><a href="semana08.html">Semana 08</a></li>
+                        <li><a href="semana09.html">Semana 09</a></li>
+                        <li><a href="semana10.html">Semana 10</a></li>
+                        <li><a href="semana11.html">Semana 11</a></li>
+                        <li><a href="semana12.html">Semana 12</a></li>
+                        <li><a href="semana13.html">Semana 13</a></li>
+                        <li><a href="semana14.html">Semana 14</a></li>
+                        <li><a href="semana15.html">Semana 15</a></li>
+                        <li><a href="semana16.html">Semana 16</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <main id="inicio">
+        <div class="codigo-section">
+            <h2>Código 1</h2>
+            <div class="button-group">
+                <button class="codigo-btn" data-target="codigo1">Ver Código 1</button>
+                <a href="https://github.com/Blazzz-1999/aplicaciones/blob/main/semana05.html" class="btn-github">Ver código en GitHub</a>
+                <button class="btn-download" onclick="descargarCodigo('codigo1', 'codigo01.txt')">Descargar archivo</button>
+            </div>
+            <pre class="codigo-content" id="codigo1" style="display: none;">
+                import 'dart:io';
+
+                bool esPrimo(int num) {
+                  if (num < 2) return false;
+                  for (int i = 2; i <= num ~/ 2; i++) {
+                    if (num % i == 0) return false;
+                  }
+                  return true;
+                }
+                
+                void main() {
+                  print('Ingrese el primer número: ');
+                  int inicio = int.parse(stdin.readLineSync()!);
+                  print('Ingrese el segundo número: ');
+                  int fin = int.parse(stdin.readLineSync()!);
+                  
+                  int sumaPrimos = 0;
+                
+                  for (int i = inicio; i <= fin; i++) {
+                    if (esPrimo(i)) {
+                      sumaPrimos += i;
+                    }
+                  }
+                
+                  print('La sumatoria de los números primos entre $inicio y $fin es: $sumaPrimos');
+                }  
+            </pre>
+
+            <h2>Código 2</h2>
+            <div class="button-group">
+                <button class="codigo-btn" data-target="codigo2">Ver Código 2</button>
+                <a href="https://github.com/Blazzz-1999/aplicaciones/blob/main/semana05.html" class="btn-github">Ver código en GitHub</a>
+                <button class="btn-download" onclick="descargarCodigo('codigo2', 'codigo02.txt')">Descargar archivo</button>
+            </div>
+            <pre class="codigo-content" id="codigo2" style="display: none;">
+                import 'dart:io';
+
+                void main() {
+                print('Ingrese la cantidad de términos de Fibonacci: ');
+                int n = int.parse(stdin.readLineSync()!);
+
+                int a = 0, b = 1;
+
+                print('Secuencia de Fibonacci: ');
+                for (int i = 0; i < n; i++) {
+                    print(a);
+                    int siguiente = a + b;
+                    a = b;
+                    b = siguiente;
+                }
+                }
+            </pre>
+
+            <h2>Código 3</h2>
+            <div class="button-group">
+                <button class="codigo-btn" data-target="codigo3">Ver Código 3</button>
+                <a href="https://github.com/Blazzz-1999/aplicaciones/blob/main/semana05.html" class="btn-github">Ver código en GitHub</a>
+                <button class="btn-download" onclick="descargarCodigo('codigo3', 'codigo03.txt')">Descargar archivo</button>
+            </div>
+            <pre class="codigo-content" id="codigo3" style="display: none;">
+                import 'dart:io';
+
+                void main() {
+                print('Ingrese un número para calcular su factorial: ');
+                int num = int.parse(stdin.readLineSync()!);
+                
+                BigInt factorial = BigInt.one;
+
+                for (int i = 1; i <= num; i++) {
+                    factorial *= BigInt.from(i);
+                }
+
+                print('El factorial de $num es: $factorial');
+                }
+            </pre>
+
+            
+            <h2>Código 4</h2>
+            <div class="button-group">
+                <button class="codigo-btn" data-target="codigo4">Ver Código 4</button>
+                <a href="https://github.com/Blazzz-1999/aplicaciones/blob/main/semana05.html" class="btn-github">Ver código en GitHub</a>
+                <button class="btn-download" onclick="descargarCodigo('codigo4', 'codigo04.txt')">Descargar archivo</button>
+            </div>
+            <pre class="codigo-content" id="codigo4" style="display: none;">
+                import 'dart:io';
+
+                void main() {
+                  print('Ingrese un número entero: ');
+                  int numero = int.parse(stdin.readLineSync()!);
+                  
+                  int invertido = 0;
+                
+                  while (numero > 0) {
+                    invertido = invertido * 10 + numero % 10;
+                    numero ~/= 10;
+                  }
+                
+                  print('El número invertido es: $invertido');
+                }       
+            </pre>
+
+            <h2>Código 5</h2>
+            <div class="button-group">
+                <button class="codigo-btn" data-target="codigo5">Ver Código 5</button>
+                <a href="https://github.com/Blazzz-1999/aplicaciones/blob/main/semana05.html" class="btn-github">Ver código en GitHub</a>
+                <button class="btn-download" onclick="descargarCodigo('codigo5', 'codigo05.txt')">Descargar archivo</button>
+            </div>
+            <pre class="codigo-content" id="codigo5" style="display: none;">
+                import 'dart:io';
+
+                void main() {
+                print('Ingrese el tamaño N de la matriz: ');
+                int n = int.parse(stdin.readLineSync()!);
+                
+                List<List<int>> matriz1 = List.generate(n, (_) => List.filled(n, 0));
+                List<List<int>> matriz2 = List.generate(n, (_) => List.filled(n, 0));
+                List<List<int>> suma = List.generate(n, (_) => List.filled(n, 0));
+
+                print('Ingrese elementos de la primera matriz: ');
+                for (int i = 0; i < n; i++) {
+                    for (int j = 0; j < n; j++) {
+                    matriz1[i][j] = int.parse(stdin.readLineSync()!);
+                    }
+                }
+
+                print('Ingrese elementos de la segunda matriz: ');
+                for (int i = 0; i < n; i++) {
+                    for (int j = 0; j < n; j++) {
+                    matriz2[i][j] = int.parse(stdin.readLineSync()!);
+                    }
+                }
+
+                for (int i = 0; i < n; i++) {
+                    for (int j = 0; j < n; j++) {
+                    suma[i][j] = matriz1[i][j] + matriz2[i][j];
+                    }
+                }
+
+                print('La matriz resultante de la suma es: ');
+                for (var fila in suma) {
+                    print(fila);
+                    }
+                } 
+            </pre>
+
+            <h2>Código 6</h2>
+            <div class="button-group">
+                <button class="codigo-btn" data-target="codigo6">Ver Código 6</button>
+                <a href="https://github.com/Blazzz-1999/aplicaciones/blob/main/semana05.html" class="btn-github">Ver código en GitHub</a>
+                <button class="btn-download" onclick="descargarCodigo('codigo6', 'codigo06.txt')">Descargar archivo</button>
+            </div>
+            <pre class="codigo-content" id="codigo6" style="display: none;">
+                void main() {
+                    print('Números perfectos entre 1 y 10,000:');
+                    
+                    for (int num = 1; num <= 10000; num++) {
+                      int sumaDivisores = 0;
+                      
+                      for (int i = 1; i < num; i++) {
+                        if (num % i == 0) {
+                          sumaDivisores += i;
+                        }
+                      }
+                      
+                      if (sumaDivisores == num) {
+                        print(num);
+                      }
+                    }
+                  }                  
+            </pre>
+
+            <h2>Código 7</h2>
+            <div class="button-group">
+                <button class="codigo-btn" data-target="codigo7">Ver Código 7</button>
+                <a href="https://github.com/Blazzz-1999/aplicaciones/blob/main/semana05.html" class="btn-github">Ver código en GitHub</a>
+                <button class="btn-download" onclick="descargarCodigo('codigo7', 'codigo07.txt')">Descargar archivo</button>
+            </div>
+            <pre class="codigo-content" id="codigo7" style="display: none;">
+                import 'dart:io';
+
+                void main() {
+                print('Ingrese el tamaño de la matriz: ');
+                int n = int.parse(stdin.readLineSync()!);
+                
+                List<List<int>> matriz = List.generate(n, (_) => List.filled(n, 0));
+                
+                int valor = 1;
+                int inicioFila = 0, finFila = n - 1;
+                int inicioCol = 0, finCol = n - 1;
+
+                while (inicioFila <= finFila && inicioCol <= finCol) {
+                    for (int i = inicioCol; i <= finCol; i++) {
+                    matriz[inicioFila][i] = valor++;
+                    }
+                    inicioFila++;
+                    
+                    for (int i = inicioFila; i <= finFila; i++) {
+                    matriz[i][finCol] = valor++;
+                    }
+                    finCol--;
+                    
+                    if (inicioFila <= finFila) {
+                    for (int i = finCol; i >= inicioCol; i--) {
+                        matriz[finFila][i] = valor++;
+                    }
+                    finFila--;
+                    }
+                    
+                    if (inicioCol <= finCol) {
+                    for (int i = finFila; i >= inicioFila; i--) {
+                        matriz[i][inicioCol] = valor++;
+                    }
+                    inicioCol++;
+                    }
+                }
+
+                print('Matriz en forma de espiral:');
+                for (var fila in matriz) {
+                    print(fila);
+                    }
+                }        
+            </pre>
+
+            <h2>Código 8</h2>
+            <div class="button-group">
+                <button class="codigo-btn" data-target="codigo8">Ver Código 8</button>
+                <a href="https://github.com/Blazzz-1999/aplicaciones/blob/main/semana05.html" class="btn-github">Ver código en GitHub</a>
+                <button class="btn-download" onclick="descargarCodigo('codigo8', 'codigo08.txt')">Descargar archivo</button>
+            </div>
+            <pre class="codigo-content" id="codigo8" style="display: none;">
+                import 'dart:math';
+                import 'dart:io';
+                
+                void main() {
+                  print('Ingrese un número para verificar si es un número de Armstrong: ');
+                  int num = int.parse(stdin.readLineSync()!);
+                  int original = num;
+                  int suma = 0;
+                  int n = num.toString().length;
+                
+                  while (num > 0) {
+                    int digito = num % 10;
+                    suma += pow(digito, n) as int;
+                    num ~/= 10;
+                  }
+                
+                  if (suma == original) {
+                    print('$original es un número de Armstrong.');
+                  } else 
+            </pre>
+
+            <h2>Código 9</h2>
+            <div class="button-group">
+                <button class="codigo-btn" data-target="codigo9">Ver Código 9</button>
+                <a href="https://github.com/Blazzz-1999/aplicaciones/blob/main/semana05.html" class="btn-github">Ver código en GitHub</a>
+                <button class="btn-download" onclick="descargarCodigo('codigo9', 'codigo09.txt')">Descargar archivo</button>
+            </div>
+            <pre class="codigo-content" id="codigo9" style="display: none;">
+                import 'dart:io';
+
+                void main() {
+                  print('Ingrese la base: ');
+                  int base = int.parse(stdin.readLineSync()!);
+                  print('Ingrese el exponente: ');
+                  int exponente = int.parse(stdin.readLineSync()!);
+                
+                  int resultado = 1;
+                
+                  for (int i = 0; i < exponente; i++) {
+                    resultado *= base;
+                  }
+                
+                  print('$base elevado a la $exponente es: $resultado');
+                }                 
+            </pre>
+            
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ABEL SALDAÑA PORRAS. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const dropdown = document.querySelector('.dropdown-btn');
+        const dropdownContent = document.querySelector('.dropdown-container');
+
+        dropdown.addEventListener('click', function() {
+            dropdownContent.classList.toggle('show');
+        });
+
+        const codigoBtns = document.querySelectorAll('.codigo-btn');
+        
+        codigoBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const codigoContent = document.getElementById(targetId);
+                codigoContent.style.display = codigoContent.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+
+        function descargarCodigo(targetId, nombreArchivo) {
+            const codigoContent = document.getElementById(targetId).textContent;
+            const blob = new Blob([codigoContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = nombreArchivo;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
