@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicaciones Web</title>
+    <link rel="stylesheet" href="estilos04.css">
+</head>
+<body>
+    <header>
+        <h1>TAREA SEMANA 07</h1>
+    </header>
+
+    <nav class="sidebar">
+        <ul>
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="#aplicaciones-web">Aplicaciones Web</a></li>
+            <li class="dropdown">
+                <button class="dropdown-btn">Semanas</button>
+                <div class="dropdown-container">
+                    <ul>
+                        <li><a href="semana01.html">Semana 01</a></li>
+                        <li><a href="semana02.html">Semana 02</a></li>
+                        <li><a href="semana03.html">Semana 03</a></li>
+                        <li><a href="semana04.html">Semana 04</a></li>
+                        <li><a href="semana05.html">Semana 05</a></li>
+                        <li><a href="semana06.html">Semana 06</a></li>
+                        <li><a href="semana07.html">Semana 07</a></li>
+                        <li><a href="semana08.html">Semana 08</a></li>
+                        <li><a href="semana09.html">Semana 09</a></li>
+                        <li><a href="semana10.html">Semana 10</a></li>
+                        <li><a href="semana11.html">Semana 11</a></li>
+                        <li><a href="semana12.html">Semana 12</a></li>
+                        <li><a href="semana13.html">Semana 13</a></li>
+                        <li><a href="semana14.html">Semana 14</a></li>
+                        <li><a href="semana15.html">Semana 15</a></li>
+                        <li><a href="semana16.html">Semana 16</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <main id="inicio">
+        <div class="codigo-section">
+            <h2>Código 1</h2>
+            <div class="button-group">
+                <button class="codigo-btn" data-target="codigo1">Ver Código 1</button>
+                <a href="https://github.com/Blazzz-1999/aplicaciones/blob/main/semana07.html" class="btn-github">Ver código en GitHub</a>
+                <button class="btn-download" onclick="descargarCodigo('codigo1', 'codigo01.txt')">Descargar archivo</button>
+            </div>
+            <pre class="codigo-content" id="codigo1" style="display: none;">
+                double calcularPension(String categoria, double promedio) {
+                    double pension;
+                    
+                    // Asignar la pensión según la categoría
+                    switch (categoria) {
+                      case 'A':
+                        pension = 550;
+                        break;
+                      case 'B':
+                        pension = 500;
+                        break;
+                      case 'C':
+                        pension = 460;
+                        break;
+                      case 'D':
+                        pension = 400;
+                        break;
+                      default:
+                        throw Exception('Categoría inválida');
+                    }
+                  
+                    // Calcular descuento según el promedio
+                    double descuento;
+                    if (promedio < 14.0) {
+                      descuento = 0;
+                    } else if (promedio < 16.0) {
+                      descuento = 0.10;
+                    } else if (promedio < 18.0) {
+                      descuento = 0.12;
+                    } else {
+                      descuento = 0.15;
+                    }
+                  
+                    double rebaja = pension * descuento;
+                    double nuevaPension = pension - rebaja;
+                  
+                    return nuevaPension;
+                  }
+                  
+                  void main() {
+                    String categoria = 'B';
+                    double promedio = 15.5;
+                  
+                    double nuevaPension = calcularPension(categoria, promedio);
+                    print('La nueva pensión es: S/. ${nuevaPension.toStringAsFixed(2)}');
+                  }
+            </pre>
+
+            <h2>Código 2</h2>
+            <div class="button-group">
+                <button class="codigo-btn" data-target="codigo2">Ver Código 2</button>
+                <a href="https://github.com/Blazzz-1999/aplicaciones/blob/main/semana07.html" class="btn-github">Ver código en GitHub</a>
+                <button class="btn-download" onclick="descargarCodigo('codigo2', 'codigo02.txt')">Descargar archivo</button>
+            </div>
+            <pre class="codigo-content" id="codigo2" style="display: none;">
+                int puntajePuntualidad(int minutosTardanza) {
+                    if (minutosTardanza == 0) return 10;
+                    if (minutosTardanza <= 2) return 8;
+                    if (minutosTardanza <= 5) return 6;
+                    if (minutosTardanza <= 9) return 4;
+                    return 0;
+                  }
+                  
+                  int puntajeRendimiento(int observaciones) {
+                    if (observaciones == 0) return 10;
+                    if (observaciones == 1) return 8;
+                    if (observaciones == 2) return 5;
+                    if (observaciones == 3) return 1;
+                    return 0;
+                  }
+                  
+                  double calcularBonificacion(int puntajeTotal) {
+                    if (puntajeTotal < 11) return puntajeTotal * 2.5;
+                    if (puntajeTotal <= 13) return puntajeTotal * 5.0;
+                    if (puntajeTotal <= 16) return puntajeTotal * 7.5;
+                    if (puntajeTotal <= 19) return puntajeTotal * 10.0;
+                    return 12.5;
+                  }
+                  
+                  void main() {
+                    int minutosTardanza = 3;
+                    int observaciones = 1;
+                  
+                    int puntajePorPuntualidad = puntajePuntualidad(minutosTardanza);
+                    int puntajePorRendimiento = puntajeRendimiento(observaciones);
+                    int puntajeTotal = puntajePorPuntualidad + puntajePorRendimiento;
+                  
+                    double bonificacion = calcularBonificacion(puntajeTotal);
+                  
+                    print('Puntaje por puntualidad: $puntajePorPuntualidad');
+                    print('Puntaje por rendimiento: $puntajePorRendimiento');
+                    print('Puntaje total: $puntajeTotal');
+                    print('Bonificación: S/. ${bonificacion.toStringAsFixed(2)}');
+                  }                  
+            </pre>
+
+            <h2>Código 3</h2>
+            <div class="button-group">
+                <button class="codigo-btn" data-target="codigo3">Ver Código 3</button>
+                <a href="https://github.com/Blazzz-1999/aplicaciones/blob/main/semana07.html" class="btn-github">Ver código en GitHub</a>
+                <button class="btn-download" onclick="descargarCodigo('codigo3', 'codigo03.txt')">Descargar archivo</button>
+            </div>
+            <pre class="codigo-content" id="codigo3" style="display: none;">
+                double calcularPrecio(String tipo, int cantidad) {
+                    double precioUnitario;
+                  
+                    switch (tipo) {
+                      case 'Primor':
+                        precioUnitario = 8.5;
+                        break;
+                      case 'Dulzura':
+                        precioUnitario = 10.0;
+                        break;
+                      case 'Tentación':
+                        precioUnitario = 7.0;
+                        break;
+                      case 'Explosión':
+                        precioUnitario = 12.5;
+                        break;
+                      default:
+                        throw Exception('Tipo de chocolate inválido');
+                    }
+                  
+                    return precioUnitario * cantidad;
+                  }
+                  
+                  double calcularDescuento(double total, int cantidad) {
+                    if (cantidad < 5) return total * 0.04;
+                    if (cantidad < 10) return total * 0.065;
+                    if (cantidad < 15) return total * 0.09;
+                    return total * 0.115;
+                  }
+                  
+                  int calcularCaramelos(int cantidad, double total) {
+                    return total >= 250 ? cantidad * 3 : cantidad * 2;
+                  }
+                  
+                  void main() {
+                    String tipoChocolate = 'Dulzura';
+                    int cantidad = 6;
+                  
+                    double total = calcularPrecio(tipoChocolate, cantidad);
+                    double descuento = calcularDescuento(total, cantidad);
+                    double totalAPagar = total - descuento;
+                    int caramelos = calcularCaramelos(cantidad, totalAPagar);
+                  
+                    print('Importe de la compra: S/. ${total.toStringAsFixed(2)}');
+                    print('Importe del descuento: S/. ${descuento.toStringAsFixed(2)}');
+                    print('Importe a pagar: S/. ${totalAPagar.toStringAsFixed(2)}');
+                    print('Cantidad de caramelos: $caramelos');
+                  }
+                  
+            </pre>
+
+            <h2>Código 4</h2>
+            <div class="button-group">
+                <button class="codigo-btn" data-target="codigo4">Ver Código 4</button>
+                <a href="https://github.com/Blazzz-1999/aplicaciones/blob/main/semana07.html" class="btn-github">Ver código en GitHub</a>
+                <button class="btn-download" onclick="descargarCodigo('codigo4', 'codigo04.txt')">Descargar archivo</button>
+            </div>
+            <pre class="codigo-content" id="codigo4" style="display: none;">
+                double calcularImporte(String producto, int cantidad) {
+                    double precio;
+                  
+                    switch (producto) {
+                      case 'P1':
+                        precio = 15.0;
+                        break;
+                      case 'P2':
+                        precio = 17.5;
+                        break;
+                      case 'P3':
+                        precio = 20.0;
+                        break;
+                      default:
+                        throw Exception('Producto inválido');
+                    }
+                  
+                    return precio * cantidad;
+                  }
+                  
+                  String determinarRegalo(int cantidad) {
+                    if (cantidad < 26) return 'Un lapicero';
+                    if (cantidad <= 50) return 'Un cuaderno';
+                    return 'Una agenda';
+                  }
+                  
+                  void main() {
+                    String producto = 'P2';
+                    int cantidad = 30;
+                  
+                    double importe = calcularImporte(producto, cantidad);
+                    String regalo = determinarRegalo(cantidad);
+                  
+                    print('Importe a pagar: S/. ${importe.toStringAsFixed(2)}');
+                    print('Regalo: $regalo');
+                  } 
+            </pre>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ABEL SALDAÑA PORRAS. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const dropdown = document.querySelector('.dropdown-btn');
+        const dropdownContent = document.querySelector('.dropdown-container');
+
+        dropdown.addEventListener('click', function() {
+            dropdownContent.classList.toggle('show');
+        });
+
+        const codigoBtns = document.querySelectorAll('.codigo-btn');
+        
+        codigoBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const codigoContent = document.getElementById(targetId);
+                codigoContent.style.display = codigoContent.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+
+        function descargarCodigo(targetId, nombreArchivo) {
+            const codigoContent = document.getElementById(targetId).textContent;
+            const blob = new Blob([codigoContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = nombreArchivo;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
