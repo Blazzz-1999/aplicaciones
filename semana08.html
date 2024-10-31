@@ -52,69 +52,311 @@
             <pre class="codigo-content" id="codigo1" style="display: none;">
                 import 'package:flutter/material.dart';
                 import 'dart:async';
-
+                
                 void main() {
-                runApp(MyApp());
+                  runApp(MyApp());
                 }
-
+                
                 class MyApp extends StatelessWidget {
-                @override
-                Widget build(BuildContext context) {
+                  @override
+                  Widget build(BuildContext context) {
                     return MaterialApp(
-                    title: 'Splash Screen',
-                    theme: ThemeData(
+                      title: 'Geometric Area Calculator',
+                      theme: ThemeData(
                         primarySwatch: Colors.blue,
-                    ),
-                    home: SplashScreen(),
+                      ),
+                      home: SplashScreen(),
                     );
+                  }
                 }
-                }
-
+                
                 class SplashScreen extends StatefulWidget {
-                @override
-                _SplashScreenState createState() => _SplashScreenState();
+                  @override
+                  _SplashScreenState createState() => _SplashScreenState();
                 }
-
+                
                 class _SplashScreenState extends State<SplashScreen> {
-                @override
-                void initState() {
+                  @override
+                  void initState() {
                     super.initState();
-                    // Esperar 3 segundos antes de ir a la siguiente pantalla
                     Timer(Duration(seconds: 3), () {
-                    Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => HomeScreen()),
-                    );
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                      );
                     });
-                }
-
-                @override
-                Widget build(BuildContext context) {
-                    return const Scaffold(
-                    backgroundColor: Colors.blue,
-                    body: Center(
-                        child: Text(
-                        '¡Bienvenido!',
-                        style: TextStyle(fontSize: 24, color: Colors.white),
-                        ),
-                    ),
-                    );
-                }
-                }
-
-                class HomeScreen extends StatelessWidget {
-                @override
-                Widget build(BuildContext context) {
+                  }
+                
+                  @override
+                  Widget build(BuildContext context) {
                     return Scaffold(
-                    appBar: AppBar(title: Text('')),
-                    body: const Center(
+                      backgroundColor: Colors.blue,
+                      body: Center(
                         child: Text(
-                        'Abel Saldaña',
-                        style: TextStyle(fontSize: 32),
+                          '¡Bienvenido!',
+                          style: TextStyle(fontSize: 24, color: Colors.white),
                         ),
-                    ),
+                      ),
                     );
+                  }
                 }
+                
+                class LoginScreen extends StatelessWidget {
+                  final TextEditingController emailController = TextEditingController();
+                
+                  @override
+                  Widget build(BuildContext context) {
+                    return Scaffold(
+                      appBar: AppBar(title: Text('Login')),
+                      body: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          children: [
+                            TextField(
+                              controller: emailController,
+                              decoration: InputDecoration(labelText: 'Correo electrónico'),
+                              keyboardType: TextInputType.emailAddress,
+                            ),
+                            SizedBox(height: 20),
+                            ElevatedButton(
+                              onPressed: () {
+                                // Validar el ingreso de datos
+                                if (emailController.text.isNotEmpty &&
+                                    emailController.text.contains('@')) {
+                                  Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(builder: (context) => MenuScreen()),
+                                  );
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text('Ingrese un correo válido.')),
+                                  );
+                                }
+                              },
+                              child: Text('Iniciar sesión'),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  }
                 }
+                
+                class MenuScreen extends StatelessWidget {
+                  @override
+                  Widget build(BuildContext context) {
+                    return Scaffold(
+                      appBar: AppBar(title: Text('Menú de Opciones')),
+                      drawer: Drawer(
+                        child: ListView(
+                          padding: EdgeInsets.zero,
+                          children: <Widget>[
+                            DrawerHeader(
+                              child: Text('Figuras Geométricas', style: TextStyle(color: Colors.white, fontSize: 24)),
+                              decoration: BoxDecoration(color: Colors.blue),
+                            ),
+                            ListTile(
+                              title: Text('Círculo'),
+                              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => CircleAreaScreen())),
+                            ),
+                            ListTile(
+                              title: Text('Cuadrado'),
+                              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => SquareAreaScreen())),
+                            ),
+                            ListTile(
+                              title: Text('Rectángulo'),
+                              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => RectangleAreaScreen())),
+                            ),
+                            ListTile(
+                              title: Text('Triángulo'),
+                              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => TriangleAreaScreen())),
+                            ),
+                          ],
+                        ),
+                      ),
+                      body: Center(child: Text('Seleccione una figura para calcular su área.')),
+                    );
+                  }
+                }
+                
+                // Pantallas para calcular áreas de figuras
+                
+                class CircleAreaScreen extends StatelessWidget {
+                  final TextEditingController radiusController = TextEditingController();
+                
+                  @override
+                  Widget build(BuildContext context) {
+                    return Scaffold(
+                      appBar: AppBar(title: Text('Área del Círculo')),
+                      body: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          children: [
+                            TextField(
+                              controller: radiusController,
+                              decoration: InputDecoration(labelText: 'Ingrese el radio'),
+                              keyboardType: TextInputType.number,
+                            ),
+                            SizedBox(height: 20),
+                            ElevatedButton(
+                              onPressed: () {
+                                double radius = double.tryParse(radiusController.text) ?? 0;
+                                double area = 3.14 * radius * radius;
+                                showDialog(
+                                  context: context,
+                                  builder: (context) => AlertDialog(
+                                    title: Text('Área del Círculo'),
+                                    content: Text('El área es: ${area.toStringAsFixed(2)}'),
+                                    actions: [
+                                      TextButton(onPressed: () => Navigator.of(context).pop(), child: Text('Cerrar')),
+                                    ],
+                                  ),
+                                );
+                              },
+                              child: Text('Calcular área'),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  }
+                }
+                
+                class SquareAreaScreen extends StatelessWidget {
+                  final TextEditingController sideController = TextEditingController();
+                
+                  @override
+                  Widget build(BuildContext context) {
+                    return Scaffold(
+                      appBar: AppBar(title: Text('Área del Cuadrado')),
+                      body: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          children: [
+                            TextField(
+                              controller: sideController,
+                              decoration: InputDecoration(labelText: 'Ingrese el lado'),
+                              keyboardType: TextInputType.number,
+                            ),
+                            SizedBox(height: 20),
+                            ElevatedButton(
+                              onPressed: () {
+                                double side = double.tryParse(sideController.text) ?? 0;
+                                double area = side * side;
+                                showDialog(
+                                  context: context,
+                                  builder: (context) => AlertDialog(
+                                    title: Text('Área del Cuadrado'),
+                                    content: Text('El área es: ${area.toStringAsFixed(2)}'),
+                                    actions: [
+                                      TextButton(onPressed: () => Navigator.of(context).pop(), child: Text('Cerrar')),
+                                    ],
+                                  ),
+                                );
+                              },
+                              child: Text('Calcular área'),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  }
+                }
+                
+                class RectangleAreaScreen extends StatelessWidget {
+                  final TextEditingController lengthController = TextEditingController();
+                  final TextEditingController widthController = TextEditingController();
+                
+                  @override
+                  Widget build(BuildContext context) {
+                    return Scaffold(
+                      appBar: AppBar(title: Text('Área del Rectángulo')),
+                      body: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          children: [
+                            TextField(
+                              controller: lengthController,
+                              decoration: InputDecoration(labelText: 'Ingrese la longitud'),
+                              keyboardType: TextInputType.number,
+                            ),
+                            TextField(
+                              controller: widthController,
+                              decoration: InputDecoration(labelText: 'Ingrese el ancho'),
+                              keyboardType: TextInputType.number,
+                            ),
+                            SizedBox(height: 20),
+                            ElevatedButton(
+                              onPressed: () {
+                                double length = double.tryParse(lengthController.text) ?? 0;
+                                double width = double.tryParse(widthController.text) ?? 0;
+                                double area = length * width;
+                                showDialog(
+                                  context: context,
+                                  builder: (context) => AlertDialog(
+                                    title: Text('Área del Rectángulo'),
+                                    content: Text('El área es: ${area.toStringAsFixed(2)}'),
+                                    actions: [
+                                      TextButton(onPressed: () => Navigator.of(context).pop(), child: Text('Cerrar')),
+                                    ],
+                                  ),
+                                );
+                              },
+                              child: Text('Calcular área'),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  }
+                }
+                
+                class TriangleAreaScreen extends StatelessWidget {
+                  final TextEditingController baseController = TextEditingController();
+                  final TextEditingController heightController = TextEditingController();
+                
+                  @override
+                  Widget build(BuildContext context) {
+                    return Scaffold(
+                      appBar: AppBar(title: Text('Área del Triángulo')),
+                      body: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          children: [
+                            TextField(
+                              controller: baseController,
+                              decoration: InputDecoration(labelText: 'Ingrese la base'),
+                              keyboardType: TextInputType.number,
+                            ),
+                            TextField(
+                              controller: heightController,
+                              decoration: InputDecoration(labelText: 'Ingrese la altura'),
+                              keyboardType: TextInputType.number,
+                            ),
+                            SizedBox(height: 20),
+                            ElevatedButton(
+                              onPressed: () {
+                                double base = double.tryParse(baseController.text) ?? 0;
+                                double height = double.tryParse(heightController.text) ?? 0;
+                                double area = 0.5 * base * height;
+                                showDialog(
+                                  context: context,
+                                  builder: (context) => AlertDialog(
+                                    title: Text('Área del Triángulo'),
+                                    content: Text('El área es: ${area.toStringAsFixed(2)}'),
+                                    actions: [
+                                      TextButton(onPressed: () => Navigator.of(context).pop(), child: Text('Cerrar')),
+                                    ],
+                                  ),
+                                );
+                              },
+                              child: Text('Calcular área'),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  }
+                }
+                
 
             </pre>
 
