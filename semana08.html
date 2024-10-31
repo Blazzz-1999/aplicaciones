@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicaciones Web</title>
+    <link rel="stylesheet" href="estilos04.css">
+</head>
+<body>
+    <header>
+        <h1>TAREA SEMANA 08</h1>
+    </header>
+
+    <nav class="sidebar">
+        <ul>
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="#aplicaciones-web">Aplicaciones Web</a></li>
+            <li class="dropdown">
+                <button class="dropdown-btn">Semanas</button>
+                <div class="dropdown-container">
+                    <ul>
+                        <li><a href="semana01.html">Semana 01</a></li>
+                        <li><a href="semana02.html">Semana 02</a></li>
+                        <li><a href="semana03.html">Semana 03</a></li>
+                        <li><a href="semana04.html">Semana 04</a></li>
+                        <li><a href="semana05.html">Semana 05</a></li>
+                        <li><a href="semana06.html">Semana 06</a></li>
+                        <li><a href="semana07.html">Semana 07</a></li>
+                        <li><a href="semana08.html">Semana 08</a></li>
+                        <li><a href="semana09.html">Semana 09</a></li>
+                        <li><a href="semana10.html">Semana 10</a></li>
+                        <li><a href="semana11.html">Semana 11</a></li>
+                        <li><a href="semana12.html">Semana 12</a></li>
+                        <li><a href="semana13.html">Semana 13</a></li>
+                        <li><a href="semana14.html">Semana 14</a></li>
+                        <li><a href="semana15.html">Semana 15</a></li>
+                        <li><a href="semana16.html">Semana 16</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <main id="inicio">
+        <div class="codigo-section">
+            <h2>Código </h2>
+            <div class="button-group">
+                <button class="codigo-btn" data-target="codigo1">Ver Código 1</button>
+                <a href="https://github.com/Blazzz-1999/aplicaciones/blob/main/semana08.html" class="btn-github">Ver código en GitHub</a>
+                <button class="btn-download" onclick="descargarCodigo('codigo1', 'codigo01.txt')">Descargar archivo</button>
+            </div>
+            <pre class="codigo-content" id="codigo1" style="display: none;">
+                import 'package:flutter/material.dart';
+                import 'dart:async';
+
+                void main() {
+                runApp(MyApp());
+                }
+
+                class MyApp extends StatelessWidget {
+                @override
+                Widget build(BuildContext context) {
+                    return MaterialApp(
+                    title: 'Splash Screen',
+                    theme: ThemeData(
+                        primarySwatch: Colors.blue,
+                    ),
+                    home: SplashScreen(),
+                    );
+                }
+                }
+
+                class SplashScreen extends StatefulWidget {
+                @override
+                _SplashScreenState createState() => _SplashScreenState();
+                }
+
+                class _SplashScreenState extends State<SplashScreen> {
+                @override
+                void initState() {
+                    super.initState();
+                    // Esperar 3 segundos antes de ir a la siguiente pantalla
+                    Timer(Duration(seconds: 3), () {
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                    );
+                    });
+                }
+
+                @override
+                Widget build(BuildContext context) {
+                    return const Scaffold(
+                    backgroundColor: Colors.blue,
+                    body: Center(
+                        child: Text(
+                        '¡Bienvenido!',
+                        style: TextStyle(fontSize: 24, color: Colors.white),
+                        ),
+                    ),
+                    );
+                }
+                }
+
+                class HomeScreen extends StatelessWidget {
+                @override
+                Widget build(BuildContext context) {
+                    return Scaffold(
+                    appBar: AppBar(title: Text('')),
+                    body: const Center(
+                        child: Text(
+                        'Abel Saldaña',
+                        style: TextStyle(fontSize: 32),
+                        ),
+                    ),
+                    );
+                }
+                }
+
+            </pre>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ABEL SALDAÑA PORRAS. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const dropdown = document.querySelector('.dropdown-btn');
+        const dropdownContent = document.querySelector('.dropdown-container');
+
+        dropdown.addEventListener('click', function() {
+            dropdownContent.classList.toggle('show');
+        });
+
+        const codigoBtns = document.querySelectorAll('.codigo-btn');
+        
+        codigoBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const codigoContent = document.getElementById(targetId);
+                codigoContent.style.display = codigoContent.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+
+        function descargarCodigo(targetId, nombreArchivo) {
+            const codigoContent = document.getElementById(targetId).textContent;
+            const blob = new Blob([codigoContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = nombreArchivo;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
